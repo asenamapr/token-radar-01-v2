@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>token radar — radar-3</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><span class="mark">◉</span> token radar <span class="sub">radar-3</span></div>
+  <div id="headline" class="headline">loading…</div>
+  <p id="judge-note" class="judge"></p>
+  <nav class="tabs" aria-label="Views">
+    <button type="button" data-tab="board" id="tab-board">Board</button>
+    <button type="button" data-tab="live" id="tab-live">Live tokens</button>
+    <button type="button" data-tab="method" id="tab-method">Methodology</button>
+  </nav>
+</header>
+<main>
+  <section id="view-board" class="view">
+    <div class="controls">
+      <input id="q" type="search" placeholder="Search name or slug…" aria-label="Search by name or slug">
+      <select id="f-category" aria-label="Filter by category"><option value="">All categories</option></select>
+      <select id="f-chain" aria-label="Filter by chain"><option value="">All chains</option></select>
+      <label class="check"><input id="f-watchlist" type="checkbox"> Watchlist only</label>
+      <select id="f-verdict" aria-label="Filter by verdict">
+        <option value="">All verdicts</option><option value="FARM">FARM</option>
+        <option value="THIN">THIN</option><option value="SKIP">SKIP</option>
+      </select>
+      <select id="f-sort" aria-label="Sort">
+        <option value="implied">Implied value ↓</option>
+        <option value="net">Net ↓</option>
+        <option value="tvl">TVL ↓</option>
+        <option value="name">Name A–Z</option>
+      </select>
+    </div>
+    <div id="board-count" class="count"></div>
+    <table class="board">
+      <thead><tr>
+        <th class="num">#</th><th>Protocol</th><th>Category</th><th>Chain</th>
+        <th class="num">TVL</th><th class="num">Implied value</th>
+        <th class="num">Net / farmer</th><th>Verdict</th>
+      </tr></thead>
+      <tbody id="board-body"></tbody>
+    </table>
+  </section>
+
+  <section id="view-detail" class="view" hidden>
+    <p class="back"><a href="#" id="back-link">← Back to board</a></p>
+    <div id="detail"></div>
+  </section>
+
+  <section id="view-live" class="view" hidden>
+    <h2>Live tokens — the 24 largest by market cap</h2>
+    <p class="muted">These tokens already trade. They are the comparables the board is priced
+      from, not board rows. Values are the market's own, from the snapshot.</p>
+    <table class="board">
+      <thead><tr>
+        <th class="num">#</th><th>Protocol</th><th>Category</th><th>Chain</th>
+        <th class="num">TVL</th><th class="num">Market cap</th><th class="num">mcap / TVL</th>
+      </tr></thead>
+      <tbody id="live-body"></tbody>
+    </table>
+  </section>
+
+  <section id="view-method" class="view" hidden>
+    <h2>Methodology — radar-3</h2>
+    <div id="method"></div>
+  </section>
+</main>
+<footer>
+  <p>Implied values are this entry's own claim, fitted on the snapshot's live tokens —
+    not a price, not advice, and no token is promised. A farm plan is a plan, not a
+    guarantee. Snapshot as of <span id="asof"></span>; floor $50,000,000.</p>
+</footer>
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

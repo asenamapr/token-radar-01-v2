@@ -1,0 +1,80 @@
+/* radar-3 dashboard: warm paper, dark ink, one warm accent. */
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: #f6f1e8; color: #221d17;
+  font: 15px/1.5 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+a { color: #b45309; }
+h2 { font-size: 20px; margin: 4px 0 10px; }
+.muted { color: #6b6259; margin-top: 0; }
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+.top { background: #fffdf8; border-bottom: 3px solid #b45309; padding: 18px 28px 0; }
+.brand { font-size: 26px; font-weight: 800; letter-spacing: -0.5px; }
+.brand .mark { color: #b45309; }
+.brand .sub { font-size: 13px; font-weight: 600; color: #b45309; background: #fdeeda;
+  border-radius: 999px; padding: 2px 9px; vertical-align: middle; margin-left: 6px; }
+.headline { margin: 8px 0 4px; font-size: 15px; font-weight: 700; }
+.headline b { color: #b45309; }
+.judge { margin: 0 0 12px; color: #57504a; font-style: italic; max-width: 1050px; }
+.tabs { display: flex; gap: 4px; }
+.tabs button {
+  border: 1px solid #e3d9c8; border-bottom: none; background: #f6f1e8; color: #221d17;
+  font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 8px 8px 0 0; cursor: pointer;
+}
+.tabs button.active { background: #221d17; color: #fffdf8; border-color: #221d17; }
+main { max-width: 1120px; margin: 0 auto; padding: 18px 28px 30px; }
+.view[hidden] { display: none; }
+.controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 10px; }
+.controls input, .controls select {
+  font: inherit; padding: 7px 10px; border: 1px solid #d8cdb9; border-radius: 6px;
+  background: #fffdf8; color: #221d17;
+}
+.controls input[type="search"] { flex: 1 1 220px; min-width: 180px; }
+.controls .check { font-weight: 600; display: flex; gap: 6px; align-items: center; }
+.count { color: #6b6259; margin-bottom: 8px; font-weight: 600; }
+table.board { width: 100%; border-collapse: collapse; background: #fffdf8;
+  border: 1px solid #e3d9c8; border-radius: 8px; overflow: hidden; }
+.board th, .board td { padding: 8px 10px; border-bottom: 1px solid #efe8d8; text-align: left; }
+.board thead th { background: #221d17; color: #fffdf8; font-size: 12px;
+  text-transform: uppercase; letter-spacing: 0.4px; }
+.board tbody tr { cursor: pointer; }
+.board tbody tr:hover { background: #fdf3e3; }
+.board td.imp { font-weight: 800; color: #b45309; }
+.board td.net { font-weight: 700; }
+.board td.net.neg { color: #8a3b3b; }
+.board td.net.pos { color: #166534; }
+.pill { display: inline-block; font-size: 12px; font-weight: 800; padding: 2px 9px; border-radius: 999px; }
+.pill.FARM { background: #dcfce7; color: #166534; }
+.pill.THIN { background: #fef3c7; color: #92400e; }
+.pill.SKIP { background: #f3e2e2; color: #8a3b3b; }
+.pill.WL { background: #fdeeda; color: #92400e; margin-left: 6px; }
+.slug { color: #6b6259; font-size: 12px; }
+.back { margin: 0 0 12px; }
+.cards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+.card { background: #fffdf8; border: 1px solid #e3d9c8; border-radius: 8px; padding: 14px 16px; }
+.card h3 { margin: 0 0 8px; font-size: 15px; }
+.card dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 4px 14px; }
+.card dt { color: #6b6259; }
+.card dd { margin: 0; text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; }
+.card dd.big { color: #b45309; font-weight: 800; }
+.checkline { font-weight: 700; padding: 9px 12px; border-radius: 6px; margin: 0 0 14px; }
+.checkline.ok { background: #dcfce7; color: #166534; }
+.checkline.bad { background: #fee2e2; color: #991b1b; }
+ol.steps { background: #fffdf8; border: 1px solid #e3d9c8; border-radius: 8px;
+  padding: 14px 18px 14px 38px; margin: 0; }
+ol.steps li { margin-bottom: 10px; }
+ol.steps li:last-child { margin-bottom: 0; }
+.method h3 { margin: 22px 0 6px; font-size: 17px; }
+.method h3:first-child { margin-top: 0; }
+.method p { margin: 0 0 10px; max-width: 900px; }
+.method table { border-collapse: collapse; background: #fffdf8; margin: 6px 0 12px; }
+.method table th, .method table td { border: 1px solid #e3d9c8; padding: 6px 12px; text-align: right; }
+.method table th:first-child, .method table td:first-child { text-align: left; }
+.method table th { background: #221d17; color: #fffdf8; }
+.method code { background: #efe8d8; padding: 1px 5px; border-radius: 4px; font-size: 13px; }
+footer { max-width: 1120px; margin: 0 auto; padding: 0 28px 26px; color: #6b6259; font-size: 13px; }
+@media (max-width: 760px) {
+  .cards { grid-template-columns: 1fr; }
+  .top, main { padding-left: 14px; padding-right: 14px; }
+}
