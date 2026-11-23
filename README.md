@@ -1,5 +1,11 @@
 # token radar — radar-3
 
+[![token-radar-01](https://make.fun/badge/token-radar-01.svg)](https://make.fun/bounty/token-radar-01)
+[![rank](https://make.fun/badge/token-radar-01/asenamapr/token-radar-01-v2/rank.svg)](https://make.fun/bounty/token-radar-01)
+[![reward](https://make.fun/badge/token-radar-01/asenamapr/token-radar-01-v2/reward.svg)](https://make.fun/bounty/token-radar-01)
+
+Bounty: [token-radar-01](https://make.fun/bounty/token-radar-01)
+
 A token-launch radar: it reads a frozen DefiLlama snapshot of 758 protocols,
 fits a value curve on the 128 live tokens in it, ranks the 198 pre-token
 protocols by what their launch would be worth, and nets every farm plan to
