@@ -16,7 +16,7 @@
 // are written, so the screenshots can be rendered from the output and the run
 // repeated to completion.
 
-import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildDossier } from './vendor/makefun-board.ts';
@@ -42,7 +42,8 @@ function main(): void {
   const { board, data, summary } = buildAll(snap);
   gateCheck(board, snap);
 
-  rmSync(outDir, { recursive: true, force: true });
+  // The grader mounts /output (removing it fails), so only create it and
+  // overwrite its files — never remove the output dir itself.
   mkdirSync(outDir, { recursive: true });
   writeFileSync(join(outDir, 'board.json'), JSON.stringify(board, null, 2) + '\n', 'utf8');
   writeFileSync(join(outDir, 'data.js'), `window.RADAR = ${JSON.stringify(data)};\n`, 'utf8');
